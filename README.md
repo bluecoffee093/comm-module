@@ -1,4 +1,4 @@
-# NRF24L01+ API Documentation
+# NRF24L01+ API for STM32 Platforms
 
 *This is a library to abstract all register access from Nordic NRF24L01+ and provide programmer easy programming interface to this chip. Credits to the author [Piotr Stolarz](https://github.com/pstolarz) whose original [library](https://github.com/pstolarz/NRF_HAL) is here ported from Arduino to STM32 devices by using the HAL API provided by STM32CubeIDE.*
 
