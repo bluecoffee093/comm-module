@@ -1,0 +1,79 @@
+1 . Disable CE pin
+1b. Inititialize  status signal
+
+2. Initialize SPI (set clock to be 1,000,000, MSBFIRST, SPI_MODE0)
+3. Inititalize CS Pin
+
+4. Disable CE pin
+5. Set power mode as PWR_DOWN:
+	5c. Write CONFIG <0x00> register
+		5c1: Enable Chip Select
+		5c2: Send [0x20+0x00 _+_ <data>(0x00)] through SPI
+		5c3: Disable Chip Select
+
+6. Give delay of 1000us
+
+7. Set power mode as PWR_UP:
+	7c. Write CONFIG <0x00> register (PRX_MODE, PWR_UP, 16_BIT_CRC)
+		7c1: Enable Chip Select
+		7c2: Send [0x20+0x00 _+_ <data>(0x0F)] through SPI
+		7c3: Disable Chip Select
+
+8. Flush RX of NRF24L01+
+	8a. Enable Chip Select
+	8b. Send FLUSH_RX [0xE2] through SPI
+	8c. Disable Chip Select
+
+9. Flush TX of NRF24L01+
+	9a. Enable Chip Select
+	9b. Send FLUSH_TX [0xE1] through SPI
+	9c. Disable Chip Select
+
+10. Configure FEATURE <0x1D> Register (Disable all channels)
+	10c1: Enable Chip Select
+	10c2: Send [0x20+0x1D _+_ <data>(0x00)] through SPI
+	10c3: Disable Chip Select
+
+11. Configure RF_CH <0x05> Register
+	11a. Write FEATURE <0x05> Register (Select CHANNEL)
+		11a1: Enable Chip Select
+		11a2: Send [0x20+0x05 _+_ (CHANNEL & 0x7f)] through SPI
+		11a3: Disable Chip Select
+
+12. Configure RF_SETUP <0x06> Register:
+	12a. Write RF_SETUP <0x06> (1MBPS and 0DBM)
+		12a1: Enable Chip Select
+		12a2: Send [0x20+0x06 _+_ (0000 0110)] through SPI
+		12a3: Disable Chip Select
+
+13. Configure pipes:
+	13a. Write EN_RXADDR 0x00 bit (Close all pipes)
+		13a1: Enable Chip Select
+		13a2: Send [0x20+0x02 _+_ (0x00)] through SPI
+		13a3: Disable Chip Select
+	13b. Write EN_AA 0 bit (Close all pipes)
+		13b1: Enable Chip Select
+		13b2: Send [0x20+0x01 _+_ (0x00)] through SPI
+		13b3: Disable Chip Select
+	13c. Write EN_RXADDR 1<<0 (Open pipe 0)
+		13c1: Enable Chip Select 
+		13c2: Send [0x20+0x02 _+_ (0x01)] through SPI
+		13c3: Disable Chip Select
+	13d. Write EN_AA 1<<0 (Enable Auto Acknowledgement for pipe 0)
+		13d1: Enable Chip Select
+		13d2: Send [0x20+0x01 _+_ (0x01)] through SPI
+		13d3: Disable Chip Select
+	13e. Write RX_PW_P0 1<<5 (Allow 32 bytes in pipe 0)
+		13e1: Enable Chip Select
+		13e2: Send [0x20+0x11 _+_ (0x20)] through SPI
+		13e3: Disable Chip Select
+
+14. Enable CE pin
+
+15. Get and clear IRQ FLAGS
+16. if (IRQ_FLAG & (1<<6))
+	16a. Is FIFO empty?
+		16a1. Read FIFO
+	16b. Decode
+17. Delay 1ms
+18. Goto 14.

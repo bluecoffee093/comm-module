@@ -1,0 +1,92 @@
+    // Commands
+    parameter R_REGISTER            = 8'h00;
+    parameter W_REGISTER            = 8'h20;
+    parameter R_RX_PAYLOAD          = 8'h61;
+    parameter W_TX_PAYLOAD          = 8'hA0;
+    parameter FLUSH_TX              = 8'hE1;
+    parameter FLUSH_RX              = 8'hE2;
+    parameter REUSE_TX_PL           = 8'hE3;
+    parameter R_RX_PL_WID           = 8'h60;
+    parameter W_ACK_PAYLOAD         = 8'hA8;
+    parameter W_TX_PAYLOAD_NOACK    = 8'hB0;
+    parameter NOP                   = 8'hFF;
+    
+    // Registers
+    parameter CONFIG                = 8'h00;
+    parameter EN_AA                 = 8'h01;
+    parameter EN_RXADDR             = 8'h02;
+    parameter SETUP_AW              = 8'h03;
+    parameter SETUP_RETR            = 8'h04;
+    parameter RF_CH                 = 8'h05;
+    parameter RF_SETUP              = 8'h06;
+    parameter STATUS                = 8'h07;
+    parameter OBSERVE_TX            = 8'h08;
+    parameter RPD                   = 8'h09;
+    parameter RX_ADDR_P0            = 8'h0A;
+    parameter RX_ADDR_P1            = 8'h0B;
+    parameter RX_ADDR_P2            = 8'h0C;
+    parameter RX_ADDR_P3            = 8'h0D;
+    parameter RX_ADDR_P4            = 8'h0E;
+    parameter RX_ADDR_P5            = 8'h0F;
+    parameter TX_ADDR               = 8'h10;
+    parameter RX_PW_P0              = 8'h11;
+    parameter RX_PW_P1              = 8'h12;
+    parameter RX_PW_P2              = 8'h13;
+    parameter RX_PW_P3              = 8'h14;
+    parameter RX_PW_P4              = 8'h15;
+    parameter RX_PW_P5              = 8'h16;
+    parameter FIFO_STATUS           = 8'h17;
+    parameter DYNPD                 = 8'h1C;
+    parameter FEATURE               = 8'h1D;
+
+    // Register bit masks
+    parameter MASK_RX_DR            = 8'h40;
+    parameter MASK_TX_DS            = 8'h20;
+    parameter MASK_MAX_RT           = 8'h10;
+    parameter EN_CRC                = 8'h08;
+    parameter CRCO                  = 8'h04;
+    parameter PWR_UP                = 8'h02;
+    parameter PRIM_RX               = 8'h01;
+
+    parameter ENAA_P5               = 8'h20;
+    parameter ENAA_P4               = 8'h10;
+    parameter ENAA_P3               = 8'h08;
+    parameter ENAA_P2               = 8'h04;
+    parameter ENAA_P1               = 8'h02;
+    parameter ENAA_P0               = 8'h01;
+
+    parameter ERX_P5                = 8'h20;
+    parameter ERX_P4                = 8'h10;
+    parameter ERX_P3                = 8'h08;
+    parameter ERX_P2                = 8'h04;
+    parameter ERX_P1                = 8'h02;
+    parameter ERX_P0                = 8'h01;
+
+    parameter AW                    = 8'h03;
+
+    parameter ARD                   = 8'hF0;
+    parameter ARC                   = 8'h0F;
+
+    parameter PLL_LOCK              = 8'h10;
+    parameter RF_DR                 = 8'h08;
+    parameter RF_PWR                = 8'h06;
+
+    parameter RX_DR                 = 8'h40;
+    parameter TX_DS                 = 8'h20;
+    parameter MAX_RT                = 8'h10;
+    parameter RX_P_NO               = 8'h0E;
+    parameter TX_FULL               = 8'h01;
+
+    parameter PLOS_CNT              = 8'hF0;
+    parameter ARC_CNT               = 8'h0F;
+
+    parameter RX_EMPTY              = 8'h01;
+    parameter RX_FULL               = 8'h02;
+    parameter TX_EMPTY              = 8'h10;
+    parameter TX_FULL               = 8'h20;
+    parameter TX_REUSE              = 8'h40;
+    parameter FIFO_FULL             = 8'h80;
+
+    parameter EN_DPL                = 8'h04;
+    parameter EN_ACK_PAY            = 8'h02;
+    parameter EN_DYN_ACK            = 8'h01;
