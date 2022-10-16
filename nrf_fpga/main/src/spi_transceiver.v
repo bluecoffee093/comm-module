@@ -32,7 +32,7 @@
 
 module spi_transceiver
   #(parameter SPI_MODE = 0,
-    parameter CLKS_PER_HALF_BIT = 32)
+    parameter CLKS_PER_HALF_BIT = 2)
   (
    // Control/Data Signals,
    input        i_Rst_L,     // FPGA Reset

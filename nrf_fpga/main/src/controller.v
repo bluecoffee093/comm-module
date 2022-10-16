@@ -1,18 +1,18 @@
 module controller(
-    input  start              // Start signal
-    input  i_Clk              // Clock Signal
-    input  i_TX_Ready         // TX Ready for next data
-    input  i_RX_DV            // RX Data Valid
-    input  i_Rst              // Reset Signal
-    input  i_RX_DR_Set        // IRQ Generation
-    input  i_FIFO_Empty       // FIFO Empty
+    input  start,              // Start signal
+    input  i_Clk,              // Clock Signal
+    input  i_TX_Ready,         // TX Ready for next data
+    input  i_RX_DV,            // RX Data Valid
+    input  i_Rst,              // Reset Signal
+    input  i_RX_DR_Set,        // IRQ Generation
+    input  i_FIFO_Empty,       // FIFO Empty
 
 
     output reg o_SPI_Csn,         // SPI Chip Select
-    output reg o_Load_TX         // Load TX Register with data
-    output reg o_Load_RX         // Load RX Register with data
+    output reg o_Load_TX,         // Load TX Register with data
+    output reg o_Load_RX,         // Load RX Register with data
     output reg o_TX_DV,          // TX Data Valid Pulse
-    output reg done              // Done signal
+    output reg done,              // Done signal
     output reg [7:0] o_Data      // Input data bus
     );
 
