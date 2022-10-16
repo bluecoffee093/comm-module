@@ -180,11 +180,7 @@ module controller(
                 o_SPI_Csn    = 1'b1;
                 o_Shift_Mem = 1'b1;
             end
-            end
-
-
-
-
+        end
             default: 
         endcase
 endmodule
