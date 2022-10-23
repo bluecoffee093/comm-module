@@ -6,8 +6,6 @@ module pipo(
     );
 
     always @(posedge i_Clk ) begin
-        if (i_Ld) begin
-            o_Data <= i_Data;
-        end
+        if (i_Ld) o_Data <= i_Data;
     end
 endmodule

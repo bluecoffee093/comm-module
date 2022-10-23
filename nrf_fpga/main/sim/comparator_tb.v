@@ -1,27 +1,5 @@
 `timescale 1ns / 1ps
 
-////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer:
-//
-// Create Date:   22:00:42 10/15/2022
-// Design Name:   comparator
-// Module Name:   /home/ajay/Krssg_comm_module/comparator_tb.v
-// Project Name:  Krssg_comm_module
-// Target Device:  
-// Tool versions:  
-// Description: 
-//
-// Verilog Test Fixture created by ISE for module: comparator
-//
-// Dependencies:
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-////////////////////////////////////////////////////////////////////////////////
-
 module comparator_tb;
 
 	// Inputs
